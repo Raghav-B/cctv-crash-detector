@@ -104,6 +104,10 @@ while True:
         # Only drawing index for object that has been detected for 3 frames
         if (point[2] >= 3):
             cv2.putText(draw, f"{int(point[1])}", point[0], font, 2, (0, 255, 255), 5, cv2.LINE_AA)
+            vector = (point[3][-1][0] - point[3][0][0], point[3][-1][1] - point[3][0][1]) # (x, y)
+            end_point = (5 * vector[0] + point[3][0][0], 5 * vector[1] + point[3][0][1]) # (x, y)
+            #cv2.line(draw, point[3][0], point[3][-1], (255, 255, 0), 10)
+            cv2.line(draw, point[3][0], end_point, (255, 255, 0), 10)
     
     if (is_init_frame == False):
         prev_frame_objects = cur_frame_objects.copy()

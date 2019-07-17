@@ -50,12 +50,20 @@ class object_sorter:
 
                     cur_objects[i][1] = prev_objects[j][1]
                     
-                    # Incrementing the frame count of the object, unless the object's frame count is
-                    # already 3.
-                    #if (prev_objects[j][2] < 3):
+                    # Read description below to see what's going on here
+                    if (prev_objects[j][2] < 3):
+                        cur_objects[i][3] = prev_objects[j][3].copy()
+                        cur_objects[i][3].append(cur_objects[i][0])
+                    else:
+                        cur_objects[i][3] = prev_objects[j][3].copy()
+                        cur_objects[i][3].popleft()
+                        cur_objects[i][3].append(cur_objects[i][0])
+                    
                     #    cur_objects[i][2] = prev_objects[j][2] + 1
                     #elif (prev_objects[j][2] == 3):
                     #    cur_objects[i][2] = 3
+                    
+                    # Incrementing the frame count of the object
                     cur_objects[i][2] = prev_objects[j][2] + 1
 
                     break
