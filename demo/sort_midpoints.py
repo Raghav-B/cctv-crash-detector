@@ -1,5 +1,5 @@
 class object_sorter:
-    min_thresh_dist = 40
+    min_thresh_dist = 40 # This minimum distance is almost perfect right now.
     max_thresh_dist = 100 # unused for now
     cur_indexes = set()
     init_index = -1
@@ -36,18 +36,27 @@ class object_sorter:
                 # If this conditional is true, it means we've identified an object in cur_frame_objects
                 # as an old one in prev_frame_objects.
                 if (temp_dist <= self.min_thresh_dist):
-                    cur_objects[i][1] = prev_objects[j][1]
+                    # This triggers if two objects happen to be VERY close together and so the algo is
+                    # getting confused. This conditional ensures that the algo continues searching for
+                    # the appropriate old object by skipping the current one.
+                    if (prev_objects[j][1] in self.cur_indexes) == True:
+                        j += 1
+                        print("close detection")
+                        continue
                     
                     # Adding the index to our set of currently in-use indexes so we can assign
                     # unused indexes to new items
                     self.cur_indexes.add(prev_objects[j][1])
+
+                    cur_objects[i][1] = prev_objects[j][1]
                     
                     # Incrementing the frame count of the object, unless the object's frame count is
                     # already 3.
-                    if (prev_objects[j][2] < 3):
-                        cur_objects[i][2] = prev_objects[j][2] + 1
-                    elif (prev_objects[j][2] == 3):
-                        cur_objects[i][2] = 3
+                    #if (prev_objects[j][2] < 3):
+                    #    cur_objects[i][2] = prev_objects[j][2] + 1
+                    #elif (prev_objects[j][2] == 3):
+                    #    cur_objects[i][2] = 3
+                    cur_objects[i][2] = prev_objects[j][2] + 1
 
                     break
                     # We can safely break because we assume that there is only one possible point that
@@ -67,6 +76,8 @@ class object_sorter:
 
 """
 If an object is concurrently detected for 3 frames, we begin to draw its vector.
+
+Init frame is not considered the first frame, I suppose you could call it the zeroth frame... 
 
 For a particular object
 First frame:

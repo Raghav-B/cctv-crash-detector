@@ -9,6 +9,7 @@ import cv2
 import numpy as np
 import glob
 import time
+from collections import deque
 from sort_midpoints import object_sorter
 
 def get_session():
@@ -81,16 +82,16 @@ while True:
         #y2 = box[3]
 
         if (is_init_frame == True):
-            prev_frame_objects.append([(midpoint_x, midpoint_y), ot.get_init_index(), 0])
+            prev_frame_objects.append([(midpoint_x, midpoint_y), ot.get_init_index(), 0, deque()])
         else:
             # All objects detected in current frame are initialised with index -1, after running through
             # the object sorter, objects are assigned appropriate indexes.
-            cur_frame_objects.append([(midpoint_x, midpoint_y), -1, 0])
+            cur_frame_objects.append([(midpoint_x, midpoint_y), -1, 0, deque()])
 
         b = box.astype(int)
         draw_box(draw, b, color=(0, 255, 255))
-        caption = "{} {:.2f}".format(labels_to_names[label], score)
-        draw_caption(draw, b, caption)
+        #caption = "{} {:.2f}".format(labels_to_names[label], score)
+        #draw_caption(draw, b, caption)
     
     # Sorting cur_frame midpoints
     if (is_init_frame == False):
@@ -101,7 +102,7 @@ while True:
 
     for point in cur_frame_objects:
         # Only drawing index for object that has been detected for 3 frames
-        if (point[2] == 3):
+        if (point[2] >= 3):
             cv2.putText(draw, f"{int(point[1])}", point[0], font, 2, (0, 255, 255), 5, cv2.LINE_AA)
     
     if (is_init_frame == False):
