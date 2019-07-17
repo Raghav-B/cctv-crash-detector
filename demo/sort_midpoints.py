@@ -23,34 +23,46 @@ class object_sorter:
         x_square = (cur_point[0] - prev_point[0]) ** 2
         return ((x_square + y_square) ** 0.5)
 
-    # Index 0 is a tuple containing the midpoint of every bounding box
-    # Index 1 is a tuple containing the bottom right corner of every bounding box
-    # Index 2 is the index assigned to each object for tracking purposes
-    # Index 3 is a count used to see how many frames an object has existed for.
     def sort_cur_objects(self, prev_objects, cur_objects):
-        i = 0
         self.cur_indexes = set()
-        
+
+        i = 0
         while (i < len(cur_objects)):
             j = 0
             while (j < len(prev_objects)):
+                # Getting distance between each pair of objects in the prev_frame_objects and cur_frame_objects
                 temp_dist = self.get_dist(prev_objects[j][0], cur_objects[i][0])
+                
+                # If this conditional is true, it means we've identified an object in cur_frame_objects
+                # as an old one in prev_frame_objects.
                 if (temp_dist <= self.min_thresh_dist):
                     cur_objects[i][1] = prev_objects[j][1]
-                    #cur_objects[i][3] = temp_dist
+                    
+                    # Adding the index to our set of currently in-use indexes so we can assign
+                    # unused indexes to new items
                     self.cur_indexes.add(prev_objects[j][1])
+                    
+                    # Incrementing the frame count of the object, unless the object's frame count is
+                    # already 3.
+                    if (prev_objects[j][2] < 3):
+                        cur_objects[i][2] = prev_objects[j][2] + 1
+                    elif (prev_objects[j][2] == 3):
+                        cur_objects[i][2] = 3
+
                     break
                     # We can safely break because we assume that there is only one possible point that
                     # in such close proximity to our current point to be indexed.
-                # In this event find the point closest to this one
+                
                 j += 1
             i += 1
-
+        
+        # This iterates through the cur_frame_objects again and sees which ones have not 
+        # been assigned an index
         for new_object in cur_objects:
             if new_object[1] == -1:
                 new_object[1] = self.find_next_free_index()
                 self.cur_indexes.add(new_object[1])
-
+            
         return cur_objects
 
 """

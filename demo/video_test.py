@@ -100,9 +100,12 @@ while True:
     print("Frame time: " + str(end_time))
 
     for point in cur_frame_objects:
-        cv2.putText(draw, f"{int(point[1])}", point[0], font, 2, (0, 255, 255), 5, cv2.LINE_AA)
+        # Only drawing index for object that has been detected for 3 frames
+        if (point[2] == 3):
+            cv2.putText(draw, f"{int(point[1])}", point[0], font, 2, (0, 255, 255), 5, cv2.LINE_AA)
+    
     if (is_init_frame == False):
-        prev_frame_objects = cur_frame_objects
+        prev_frame_objects = cur_frame_objects.copy()
         cur_frame_objects = []
 
     cv2.imshow("Detection", draw)
