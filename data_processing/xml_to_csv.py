@@ -5,9 +5,7 @@ import xml.etree.ElementTree as ET
 import cv2
 import random
 
-image_path = 'validation_extracted_frames/'
-
-valid_percentage = 0.05
+image_path = '../validation_data/'
 
 def xml_to_csv(path):
     xml_list = []
@@ -56,7 +54,7 @@ def xml_to_csv(path):
 
 def main():
     xml_df = xml_to_csv(image_path)
-    xml_df.to_csv('validation.csv', index=None)
+    xml_df.to_csv('csvs/validation.csv', index=None)
     print('Successfully converted xml to csv.')
 
 main()

@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import os
 
-csv_file = pd.read_csv("validation.csv")
+csv_file = pd.read_csv("csvs/validation.csv")
 
 for i in range(0, len(csv_file)):
 	rows = csv_file.ix[i,2]
@@ -17,4 +17,4 @@ for i in range(0, len(csv_file)):
 	csv_file.ix[i,5] += padding
 	csv_file.ix[i,7] += padding
 
-csv_file.to_csv("validation_new.csv", index = False)
+csv_file.to_csv("csvs/validation.csv", index = False)

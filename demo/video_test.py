@@ -28,7 +28,7 @@ cv2.resizeWindow("Detection", 800, 800)
 
 ot = object_sorter()
 
-video = cv2.VideoCapture("../videos/real_traffic1.mp4")
+video = cv2.VideoCapture("../videos/beamng1.mp4")
 total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
 frame_skip_amt = 2 # This makes inferencing appear realtime
 
