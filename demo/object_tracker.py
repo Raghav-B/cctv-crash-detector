@@ -1,8 +1,7 @@
-class object_sorter:
-    min_thresh_dist = 40 # This minimum distance is almost perfect right now.
-    max_thresh_dist = 100 # unused for now
-    cur_indexes = set()
-    init_index = -1
+class object_tracker:
+    def __init__(self):
+        self.cur_indexes = set()
+        self.init_index = -1
 
     def get_init_index(self):
         self.init_index += 1
