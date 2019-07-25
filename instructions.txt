@@ -2,7 +2,7 @@
 python keras_retinanet/bin/train.py --backbone=resnet101 --batch-size=2 --epochs=100 --steps=1000 --imagenet-weights --image-min-side=400 --compute-val-loss --weighted-average csv ../data_processing/csvs/keras_train.csv ../data_processing/csvs/labels.csv --val-annotations=../data_processing/csvs/keras_validation.csv
 
 # Resuming training from a previous snapshot
-python keras_retinanet/bin/train.py --weights=snapshots/resnet50_coco_best_v2.1.0.h5 --backbone=resnet50 --batch-size=2 --epochs=100 --steps=10000 --compute-val-loss csv ../annotations/train_no_p.csv ../annotations/labels_no_p.csv --val-annotations=../annotations/validation_no_p.csv
+python keras_retinanet/bin/train.py --weights=inference_graphs/resnet50_800p/resnet50_csv_28.h5 --backbone=resnet50 --batch-size=2 --epochs=50 --steps=1000 --compute-val-loss --weighted-average csv ../data_processing/csvs/keras_train.csv ../data_processing/csvs/labels.csv --val-annotations=../data_processing/csvs/keras_validation.csv
 
 # Run validation on inference model
 python keras_retinanet/bin/evaluate.py --backbone=resnet101 --score-threshold=0.7 --image-min-side=896 csv model_training/keras_validation.csv model_training/keras_labels.csv inference_graphs/resnet101_csv_12_inference.h5
@@ -15,41 +15,4 @@ tensorboard --logdir=logs/
 
 # Converting training model to inference graph (ignore any compile error - it still works)
 python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_01.h5 inference_graphs/resnet101_csv_01.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_02.h5 inference_graphs/resnet101_csv_02.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_03.h5 inference_graphs/resnet101_csv_03.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_04.h5 inference_graphs/resnet101_csv_04.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_05.h5 inference_graphs/resnet101_csv_05.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_06.h5 inference_graphs/resnet101_csv_06.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_07.h5 inference_graphs/resnet101_csv_07.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_08.h5 inference_graphs/resnet101_csv_08.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_09.h5 inference_graphs/resnet101_csv_09.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_10.h5 inference_graphs/resnet101_csv_10.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_11.h5 inference_graphs/resnet101_csv_11.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_12.h5 inference_graphs/resnet101_csv_12.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_13.h5 inference_graphs/resnet101_csv_13.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_14.h5 inference_graphs/resnet101_csv_14.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_06.h5 inference_graphs/resnet101_csv_15.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_06.h5 inference_graphs/resnet101_csv_06.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_06.h5 inference_graphs/resnet101_csv_06.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_06.h5 inference_graphs/resnet101_csv_06.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_06.h5 inference_graphs/resnet101_csv_06.h5
-python keras_retinanet/bin/convert_model.py snapshots/resnet101_csv_06.h5 inference_graphs/resnet101_csv_06.h5
-
-
-
-
-
-
-
-
 python keras_retinanet/bin/convert_model.py snapshots/resnet50_coco_best_v2.1.0.h5 inference_graphs/resnet50_coco_best_v2.1.0.h5
-
-# Running full demonstration (platform specific)
-python demonstration_windows.py
-python demonstration_ubuntu.py
-
-# Running inference on inputs
-python images_test.py
-
-# Running basic video inference test
-python video_test.py

@@ -1,0 +1,262 @@
+1324 instances of class vehicle with average precision: 0.3325
+mAP: 0.3325
+
+Epoch 00001: saving model to ./snapshots\resnet101_csv_01.h5
+Epoch 2/100
+1000/1000 [==============================] - 401s 401ms/step - loss: 1.3789 - regression_loss: 1.1860 - classification_loss: 0.1929 - val_loss: 1.2683 - val_regression_loss: 1.1048 - val_classification_loss: 0.1636
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:26 Time:  0:00:26 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.4506
+mAP: 0.4506
+
+Epoch 00002: saving model to ./snapshots\resnet101_csv_02.h5
+Epoch 3/100
+1000/1000 [==============================] - 396s 396ms/step - loss: 1.0110 - regression_loss: 0.8925 - classification_loss: 0.1185 - val_loss: 1.2751 - val_regression_loss: 1.1190 - val_classification_loss: 0.1560
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:26 Time:  0:00:26 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.4824
+mAP: 0.4824
+
+Epoch 00003: saving model to ./snapshots\resnet101_csv_03.h5
+Epoch 4/100
+1000/1000 [==============================] - 386s 386ms/step - loss: 0.8241 - regression_loss: 0.7341 - classification_loss: 0.0900 - val_loss: 1.2220 - val_regression_loss: 1.0616 - val_classification_loss: 0.1604
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.4925
+mAP: 0.4925
+
+Epoch 00004: saving model to ./snapshots\resnet101_csv_04.h5
+Epoch 5/100
+1000/1000 [==============================] - 387s 387ms/step - loss: 0.6885 - regression_loss: 0.6221 - classification_loss: 0.0664 - val_loss: 1.2441 - val_regression_loss: 1.1237 - val_classification_loss: 0.1204
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5049
+mAP: 0.5049
+
+Epoch 00005: saving model to ./snapshots\resnet101_csv_05.h5
+Epoch 6/100
+1000/1000 [==============================] - 385s 385ms/step - loss: 0.6102 - regression_loss: 0.5564 - classification_loss: 0.0538 - val_loss: 0.9366 - val_regression_loss: 0.8250 - val_classification_loss: 0.1116
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5213
+mAP: 0.5213
+
+Epoch 00006: saving model to ./snapshots\resnet101_csv_06.h5
+Epoch 7/100
+1000/1000 [==============================] - 390s 390ms/step - loss: 0.5830 - regression_loss: 0.5342 - classification_loss: 0.0488 - val_loss: 0.9981 - val_regression_loss: 0.8810 - val_classification_loss: 0.1170
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5322
+mAP: 0.5322
+
+Epoch 00007: saving model to ./snapshots\resnet101_csv_07.h5
+Epoch 8/100
+1000/1000 [==============================] - 394s 394ms/step - loss: 0.5498 - regression_loss: 0.5081 - classification_loss: 0.0416 - val_loss: 1.1478 - val_regression_loss: 0.9843 - val_classification_loss: 0.1635
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5407
+mAP: 0.5407
+
+Epoch 00008: saving model to ./snapshots\resnet101_csv_08.h5
+Epoch 9/100
+1000/1000 [==============================] - 395s 395ms/step - loss: 0.5065 - regression_loss: 0.4714 - classification_loss: 0.0350 - val_loss: 0.9395 - val_regression_loss: 0.8088 - val_classification_loss: 0.1306
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5359
+mAP: 0.5359
+
+Epoch 00009: saving model to ./snapshots\resnet101_csv_09.h5
+Epoch 10/100
+1000/1000 [==============================] - 384s 384ms/step - loss: 0.4649 - regression_loss: 0.4344 - classification_loss: 0.0305 - val_loss: 0.8904 - val_regression_loss: 0.7724 - val_classification_loss: 0.1180
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5355
+mAP: 0.5355
+
+Epoch 00010: saving model to ./snapshots\resnet101_csv_10.h5
+Epoch 11/100
+1000/1000 [==============================] - 388s 388ms/step - loss: 0.3898 - regression_loss: 0.3644 - classification_loss: 0.0254 - val_loss: 0.9347 - val_regression_loss: 0.8058 - val_classification_loss: 0.1289
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5579
+mAP: 0.5579
+
+Epoch 00011: saving model to ./snapshots\resnet101_csv_11.h5
+Epoch 12/100
+1000/1000 [==============================] - 411s 411ms/step - loss: 0.3837 - regression_loss: 0.3617 - classification_loss: 0.0220 - val_loss: 1.0000 - val_regression_loss: 0.8074 - val_classification_loss: 0.1926
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:31 Time:  0:00:31 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5580
+mAP: 0.5580
+
+Epoch 00012: saving model to ./snapshots\resnet101_csv_12.h5
+Epoch 13/100
+1000/1000 [==============================] - 404s 404ms/step - loss: 0.3777 - regression_loss: 0.3570 - classification_loss: 0.0207 - val_loss: 0.9120 - val_regression_loss: 0.8062 - val_classification_loss: 0.1058
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5594
+mAP: 0.5594
+
+Epoch 00013: saving model to ./snapshots\resnet101_csv_13.h5
+Epoch 14/100
+1000/1000 [==============================] - 384s 384ms/step - loss: 0.3489 - regression_loss: 0.3314 - classification_loss: 0.0174 - val_loss: 0.7973 - val_regression_loss: 0.6854 - val_classification_loss: 0.1119
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5485
+mAP: 0.5485
+
+Epoch 00014: saving model to ./snapshots\resnet101_csv_14.h5
+Epoch 15/100
+1000/1000 [==============================] - 386s 386ms/step - loss: 0.3257 - regression_loss: 0.3097 - classification_loss: 0.0160 - val_loss: 1.0903 - val_regression_loss: 0.9265 - val_classification_loss: 0.1639
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5533
+mAP: 0.5533
+
+Epoch 00015: saving model to ./snapshots\resnet101_csv_15.h5
+Epoch 16/100
+1000/1000 [==============================] - 406s 406ms/step - loss: 0.3120 - regression_loss: 0.2973 - classification_loss: 0.0147 - val_loss: 0.8377 - val_regression_loss: 0.7215 - val_classification_loss: 0.1162
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:30 Time:  0:00:30 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5573
+mAP: 0.5573
+
+Epoch 00016: saving model to ./snapshots\resnet101_csv_16.h5
+Epoch 17/100
+1000/1000 [==============================] - 420s 420ms/step - loss: 0.2921 - regression_loss: 0.2795 - classification_loss: 0.0126 - val_loss: 0.8017 - val_regression_loss: 0.6635 - val_classification_loss: 0.1382
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:26 Time:  0:00:26 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5692
+mAP: 0.5692
+
+Epoch 00017: saving model to ./snapshots\resnet101_csv_17.h5
+Epoch 18/100
+1000/1000 [==============================] - 418s 418ms/step - loss: 0.2744 - regression_loss: 0.2634 - classification_loss: 0.0110 - val_loss: 1.0574 - val_regression_loss: 0.8649 - val_classification_loss: 0.1925
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:25 Time:  0:00:25 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5641
+mAP: 0.5641
+
+Epoch 00018: saving model to ./snapshots\resnet101_csv_18.h5
+Epoch 19/100
+1000/1000 [==============================] - 391s 391ms/step - loss: 0.2608 - regression_loss: 0.2503 - classification_loss: 0.0105 - val_loss: 0.7907 - val_regression_loss: 0.6567 - val_classification_loss: 0.1341
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5563
+mAP: 0.5563
+
+Epoch 00019: saving model to ./snapshots\resnet101_csv_19.h5
+Epoch 20/100
+1000/1000 [==============================] - 382s 382ms/step - loss: 0.2621 - regression_loss: 0.2527 - classification_loss: 0.0094 - val_loss: 0.7950 - val_regression_loss: 0.6579 - val_classification_loss: 0.1371
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5683
+mAP: 0.5683
+
+Epoch 00020: saving model to ./snapshots\resnet101_csv_20.h5
+Epoch 21/100
+1000/1000 [==============================] - 381s 381ms/step - loss: 0.2510 - regression_loss: 0.2429 - classification_loss: 0.0081 - val_loss: 0.8693 - val_regression_loss: 0.6679 - val_classification_loss: 0.2014
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5690
+mAP: 0.5690
+
+Epoch 00021: saving model to ./snapshots\resnet101_csv_21.h5
+Epoch 22/100
+1000/1000 [==============================] - 382s 382ms/step - loss: 0.2391 - regression_loss: 0.2318 - classification_loss: 0.0073 - val_loss: 0.7921 - val_regression_loss: 0.6522 - val_classification_loss: 0.1399
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5639
+mAP: 0.5639
+
+Epoch 00022: saving model to ./snapshots\resnet101_csv_22.h5
+Epoch 23/100
+1000/1000 [==============================] - 381s 381ms/step - loss: 0.2320 - regression_loss: 0.2247 - classification_loss: 0.0073 - val_loss: 0.8654 - val_regression_loss: 0.6914 - val_classification_loss: 0.1740
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5653
+mAP: 0.5653
+
+Epoch 00023: saving model to ./snapshots\resnet101_csv_23.h5
+Epoch 24/100
+1000/1000 [==============================] - 381s 381ms/step - loss: 0.2099 - regression_loss: 0.2038 - classification_loss: 0.0061 - val_loss: 0.8361 - val_regression_loss: 0.6263 - val_classification_loss: 0.2098
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5775
+mAP: 0.5775
+
+Epoch 00024: saving model to ./snapshots\resnet101_csv_24.h5
+Epoch 25/100
+1000/1000 [==============================] - 381s 381ms/step - loss: 0.2167 - regression_loss: 0.2112 - classification_loss: 0.0056 - val_loss: 0.8460 - val_regression_loss: 0.6696 - val_classification_loss: 0.1764
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5622
+mAP: 0.5622
+
+Epoch 00025: saving model to ./snapshots\resnet101_csv_25.h5
+Epoch 26/100
+1000/1000 [==============================] - 381s 381ms/step - loss: 0.2069 - regression_loss: 0.2014 - classification_loss: 0.0055 - val_loss: 0.8163 - val_regression_loss: 0.6214 - val_classification_loss: 0.1950
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5713
+mAP: 0.5713
+
+Epoch 00026: saving model to ./snapshots\resnet101_csv_26.h5
+Epoch 27/100
+1000/1000 [==============================] - 381s 381ms/step - loss: 0.2108 - regression_loss: 0.2056 - classification_loss: 0.0052 - val_loss: 0.8381 - val_regression_loss: 0.6781 - val_classification_loss: 0.1600
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5608
+mAP: 0.5608
+
+Epoch 00027: saving model to ./snapshots\resnet101_csv_27.h5
+Epoch 28/100
+1000/1000 [==============================] - 382s 382ms/step - loss: 0.2000 - regression_loss: 0.1956 - classification_loss: 0.0044 - val_loss: 0.9242 - val_regression_loss: 0.6846 - val_classification_loss: 0.2396
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5708
+mAP: 0.5708
+
+Epoch 00028: saving model to ./snapshots\resnet101_csv_28.h5
+Epoch 29/100
+1000/1000 [==============================] - 383s 383ms/step - loss: 0.1976 - regression_loss: 0.1935 - classification_loss: 0.0042 - val_loss: 0.8445 - val_regression_loss: 0.6312 - val_classification_loss: 0.2133
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5628
+mAP: 0.5628
+
+Epoch 00029: saving model to ./snapshots\resnet101_csv_29.h5
+Epoch 30/100
+1000/1000 [==============================] - 382s 382ms/step - loss: 0.1898 - regression_loss: 0.1857 - classification_loss: 0.0041 - val_loss: 0.7753 - val_regression_loss: 0.5896 - val_classification_loss: 0.1857
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5624
+mAP: 0.5624
+
+Epoch 00030: saving model to ./snapshots\resnet101_csv_30.h5
+Epoch 31/100
+1000/1000 [==============================] - 387s 387ms/step - loss: 0.1831 - regression_loss: 0.1795 - classification_loss: 0.0037 - val_loss: 0.7924 - val_regression_loss: 0.6278 - val_classification_loss: 0.1646
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5635
+mAP: 0.5635
+
+Epoch 00031: saving model to ./snapshots\resnet101_csv_31.h5
+Epoch 32/100
+1000/1000 [==============================] - 384s 384ms/step - loss: 0.1835 - regression_loss: 0.1799 - classification_loss: 0.0036 - val_loss: 0.7988 - val_regression_loss: 0.6091 - val_classification_loss: 0.1896
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:25 Time:  0:00:25 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5717
+mAP: 0.5717
+
+Epoch 00032: saving model to ./snapshots\resnet101_csv_32.h5
+Epoch 33/100
+1000/1000 [==============================] - 386s 386ms/step - loss: 0.1748 - regression_loss: 0.1716 - classification_loss: 0.0032 - val_loss: 0.7506 - val_regression_loss: 0.5961 - val_classification_loss: 0.1544
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5665
+mAP: 0.5665
+
+Epoch 00033: saving model to ./snapshots\resnet101_csv_33.h5
+Epoch 34/100
+1000/1000 [==============================] - 391s 391ms/step - loss: 0.1758 - regression_loss: 0.1727 - classification_loss: 0.0031 - val_loss: 0.8716 - val_regression_loss: 0.6475 - val_classification_loss: 0.2241
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5614
+mAP: 0.5614
+
+Epoch 00034: saving model to ./snapshots\resnet101_csv_34.h5
+Epoch 35/100
+1000/1000 [==============================] - 386s 386ms/step - loss: 0.1797 - regression_loss: 0.1766 - classification_loss: 0.0031 - val_loss: 0.7532 - val_regression_loss: 0.5707 - val_classification_loss: 0.1825
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5597
+mAP: 0.5597
+
+Epoch 00035: saving model to ./snapshots\resnet101_csv_35.h5
+
+Epoch 00035: ReduceLROnPlateau reducing learning rate to 9.999999747378752e-07.
+Epoch 36/100
+1000/1000 [==============================] - 383s 383ms/step - loss: 0.1299 - regression_loss: 0.1276 - classification_loss: 0.0024 - val_loss: 0.7299 - val_regression_loss: 0.5279 - val_classification_loss: 0.2020
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5593
+mAP: 0.5593
+
+Epoch 00036: saving model to ./snapshots\resnet101_csv_36.h5
+Epoch 37/100
+1000/1000 [==============================] - 380s 380ms/step - loss: 0.0954 - regression_loss: 0.0936 - classification_loss: 0.0018 - val_loss: 0.7187 - val_regression_loss: 0.5202 - val_classification_loss: 0.1986
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5563
+mAP: 0.5563
+
+Epoch 00037: saving model to ./snapshots\resnet101_csv_37.h5
+Epoch 38/100
+1000/1000 [==============================] - 380s 380ms/step - loss: 0.0762 - regression_loss: 0.0745 - classification_loss: 0.0017 - val_loss: 0.7076 - val_regression_loss: 0.5145 - val_classification_loss: 0.1931
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5562
+mAP: 0.5562
+
+Epoch 00038: saving model to ./snapshots\resnet101_csv_38.h5
+Epoch 39/100
+1000/1000 [==============================] - 379s 379ms/step - loss: 0.0635 - regression_loss: 0.0620 - classification_loss: 0.0015 - val_loss: 0.7079 - val_regression_loss: 0.5114 - val_classification_loss: 0.1965
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5569
+mAP: 0.5569
+
+Epoch 00039: saving model to ./snapshots\resnet101_csv_39.h5
+Epoch 40/100
+1000/1000 [==============================] - 380s 380ms/step - loss: 0.0538 - regression_loss: 0.0524 - classification_loss: 0.0014 - val_loss: 0.7237 - val_regression_loss: 0.5268 - val_classification_loss: 0.1968
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5568
+mAP: 0.5568
+
+Epoch 00040: saving model to ./snapshots\resnet101_csv_40.h5
+Epoch 41/100
+1000/1000 [==============================] - 381s 381ms/step - loss: 0.0461 - regression_loss: 0.0449 - classification_loss: 0.0012 - val_loss: 0.7091 - val_regression_loss: 0.5172 - val_classification_loss: 0.1919
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5538
+mAP: 0.5538
+
+Epoch 00041: saving model to ./snapshots\resnet101_csv_41.h5
+Epoch 42/100
+1000/1000 [==============================] - 382s 382ms/step - loss: 0.0418 - regression_loss: 0.0406 - classification_loss: 0.0012 - val_loss: 0.7116 - val_regression_loss: 0.5179 - val_classification_loss: 0.1937
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:23 Time:  0:00:23 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5549
+mAP: 0.5549
+
+Epoch 00042: saving model to ./snapshots\resnet101_csv_42.h5
+Epoch 43/100
+1000/1000 [==============================] - 382s 382ms/step - loss: 0.0384 - regression_loss: 0.0372 - classification_loss: 0.0012 - val_loss: 0.7120 - val_regression_loss: 0.5121 - val_classification_loss: 0.1999
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5553
+mAP: 0.5553
+
+Epoch 00043: saving model to ./snapshots\resnet101_csv_43.h5
+Epoch 44/100
+1000/1000 [==============================] - 392s 392ms/step - loss: 0.0351 - regression_loss: 0.0340 - classification_loss: 0.0011 - val_loss: 0.7185 - val_regression_loss: 0.5229 - val_classification_loss: 0.1957
+Running network: 100% (228 of 228) |#######################################################################| Elapsed Time: 0:00:24 Time:  0:00:24 Parsing annotations: 100% (228 of 228) |###################################################################| Elapsed Time: 0:00:00 Time:  0:00:00 1324 instances of class vehicle with average precision: 0.5525
+mAP: 0.5525

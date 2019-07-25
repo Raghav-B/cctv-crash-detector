@@ -1,0 +1,101 @@
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7290
+mAP using the weighted average of precisions among classes: 0.7290
+mAP: 0.7290
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7248
+mAP using the weighted average of precisions among classes: 0.7248
+mAP: 0.7248
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7153
+mAP using the weighted average of precisions among classes: 0.7153
+mAP: 0.7153
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7352
+mAP using the weighted average of precisions among classes: 0.7352
+mAP: 0.7352
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7360
+mAP using the weighted average of precisions among classes: 0.7360
+mAP: 0.7360
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7378
+mAP using the weighted average of precisions among classes: 0.7378
+mAP: 0.7378
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7360
+mAP using the weighted average of precisions among classes: 0.7360
+mAP: 0.7360
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7390
+mAP using the weighted average of precisions among classes: 0.7390
+mAP: 0.7390
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7383
+mAP using the weighted average of precisions among classes: 0.7383
+mAP: 0.7383
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7382
+mAP using the weighted average of precisions among classes: 0.7382
+mAP: 0.7382
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7398
+mAP using the weighted average of precisions among classes: 0.7398
+mAP: 0.7398
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7398
+mAP using the weighted average of precisions among classes: 0.7398
+mAP: 0.7398
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7389
+mAP using the weighted average of precisions among classes: 0.7389
+mAP: 0.7389
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7397
+mAP using the weighted average of precisions among classes: 0.7397
+mAP: 0.7397
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7405
+mAP using the weighted average of precisions among classes: 0.7405
+mAP: 0.7405
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7411
+mAP using the weighted average of precisions among classes: 0.7411
+mAP: 0.7411
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7405
+mAP using the weighted average of precisions among classes: 0.7405
+mAP: 0.7405
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7404
+mAP using the weighted average of precisions among classes: 0.7404
+mAP: 0.7404
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7424
+mAP using the weighted average of precisions among classes: 0.7424
+mAP: 0.7424
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7417
+mAP using the weighted average of precisions among classes: 0.7417
+mAP: 0.7417
+resnet50_csv_01.h5
+resnet50_csv_02.h5
+resnet50_csv_03.h5
+resnet50_csv_04.h5
+resnet50_csv_05.h5
+resnet50_csv_06.h5
+resnet50_csv_07.h5
+resnet50_csv_08.h5
+resnet50_csv_09.h5
+resnet50_csv_10.h5
+resnet50_csv_11.h5
+resnet50_csv_12.h5
+resnet50_csv_13.h5
+resnet50_csv_14.h5
+resnet50_csv_15.h5
+resnet50_csv_16.h5
+resnet50_csv_17.h5
+resnet50_csv_18.h5
+resnet50_csv_19.h5
+resnet50_csv_20.h5
+Validations completed

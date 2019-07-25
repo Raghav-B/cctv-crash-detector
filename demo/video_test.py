@@ -18,8 +18,10 @@ def get_session():
     return tf.Session(config=config)
 keras.backend.tensorflow_backend.set_session(get_session())
 
-model_path = "../keras-retinanet/inference_graphs/resnet101_csv_24.h5"
-model = models.load_model(model_path, backbone_name='resnet101')
+model_path = "../keras-retinanet/inference_graphs/resnet50_600p_51+/resnet50_csv_36.h5"
+#model_path = "../keras-retinanet/inference_graphs/resnet101_800p/resnet101_csv_24.h5"
+#model_path = "../keras-retinanet/inference_graphs/resnet50_400p/resnet50_csv_48.h5"
+model = models.load_model(model_path, backbone_name='resnet50')
 
 labels_to_names = {0: "vehicle"}
 
@@ -29,19 +31,30 @@ cv2.resizeWindow("Detection", 800, 800)
 ot = object_sorter()
 
 video = cv2.VideoCapture("../videos/beamng1.mp4")
-total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
-frame_skip_amt = 2 # This makes inferencing appear realtime
+#total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
+# Every 2 frames, I want to skip a frame.
+frame_skip_amt = 0 # This makes inferencing appear realtime
+frame_skip_start = 0
 
 is_init_frame = True
 font = cv2.FONT_HERSHEY_SIMPLEX
 prev_frame_objects = []
 cur_frame_objects = []
 
+total_framerate = 0
+total_frames = 0
+
 while True:
     start_time = time.time()
     # Performing frame-skip for increased performance
-    for i in range(0, frame_skip_amt):
-        ret, frame = video.read()
+    #if (frame_skip_start < 2):
+    #    frame_skip_start += 1
+    #else:
+    #    ret, frame = video.read()
+    #    frame_skip_start = 0
+
+    #for i in range(0, frame_skip_amt):
+    #    ret, frame = video.read()
     ret, frame = video.read()
     if ret == False:
         break
@@ -60,7 +73,7 @@ while True:
 
     # preprocess image for network
     image = preprocess_image(frame)
-    image, scale = resize_image(image)
+    image, scale = resize_image(image, min_side=600)
 
     # process image
     boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
@@ -82,11 +95,11 @@ while True:
         #y2 = box[3]
 
         if (is_init_frame == True):
-            prev_frame_objects.append([(midpoint_x, midpoint_y), ot.get_init_index(), 0, deque()])
+            prev_frame_objects.append([(midpoint_x, midpoint_y), ot.get_init_index(), 0, deque(), -1])
         else:
             # All objects detected in current frame are initialised with index -1, after running through
             # the object sorter, objects are assigned appropriate indexes.
-            cur_frame_objects.append([(midpoint_x, midpoint_y), -1, 0, deque()])
+            cur_frame_objects.append([(midpoint_x, midpoint_y), 0, 0, deque(), -1])
 
         b = box.astype(int)
         draw_box(draw, b, color=(0, 255, 255))
@@ -95,20 +108,42 @@ while True:
     
     # Sorting cur_frame midpoints
     if (is_init_frame == False):
-        cur_frame_objects = ot.sort_cur_objects(prev_frame_objects, cur_frame_objects)
+        if (len(prev_frame_objects) != 0):
+            cur_frame_objects = ot.sort_cur_objects(prev_frame_objects, cur_frame_objects)
     
     end_time = time.time() - start_time
-    print("Frame time: " + str(end_time))
+    print("Framerate: " + str(int(1/end_time)))
+    total_framerate += (1/end_time)
+    total_frames += 1
 
     for point in cur_frame_objects:
         # Only drawing index for object that has been detected for 3 frames
-        if (point[2] >= 3):
-            cv2.putText(draw, f"{int(point[1])}", point[0], font, 2, (0, 255, 255), 5, cv2.LINE_AA)
+        if (point[2] >= 5):            
+            # Finding vector of car and converting to unit vector
             vector = (point[3][-1][0] - point[3][0][0], point[3][-1][1] - point[3][0][1]) # (x, y)
-            end_point = (5 * vector[0] + point[3][0][0], 5 * vector[1] + point[3][0][1]) # (x, y)
-            #cv2.line(draw, point[3][0], point[3][-1], (255, 255, 0), 10)
-            cv2.line(draw, point[3][0], end_point, (255, 255, 0), 10)
+            #vector_mag = (vector[0]**2 + vector[1]**2)**(1/2)
+            
+            #unit_vector = None
+            #if (vector_mag == 0):
+            #    unit_vector = (0, 0)
+            #else:
+            #    unit_vector = (int(vector[0] / vector_mag), int(vector[1] / vector_mag))
+            
+            # Only showing direction of vector
+            #end_point = (5 * unit_vector[0] + point[3][0][0], 5 * unit_vector[1] + point[3][0][1]) # (x, y)
+            # Showing magnitude of vector on object
+            #cv2.putText(draw, f"{int(vector_mag)}", point[0], font, 2, (0, 255, 255), 5, cv2.LINE_AA)
+            
+            # Showing both magnitude and direction of vector
+            end_point = (vector[0] + point[3][-1][0], vector[1] + point[3][-1][1]) # (x, y)
+            # Showing index of object on object
+            cv2.putText(draw, f"{int(point[1])}", point[0], font, 1, (0, 255, 255), 2, cv2.LINE_AA)
+
+            cv2.line(draw, point[3][-1], end_point, (255, 255, 0), 2)
     
+    print(cur_frame_objects)
+    print("")
+
     if (is_init_frame == False):
         prev_frame_objects = cur_frame_objects.copy()
         cur_frame_objects = []
@@ -119,5 +154,20 @@ while True:
     if cv2.waitKey(1) == ord('q'):
         break
 
+print(total_framerate / total_frames)
 video.release()
 cv2.destroyAllWindows()
+
+
+"""
+Detecting a crash.
+
+Store previous vector (or 3 vectors of object). If a newly detected vectors euclidean distance is much
+greater than the previous vectors, we know that a crash has happened. We can output a likelyhood of a
+crash having occured based on the distance between the two vectors.
+
+
+
+
+
+"""

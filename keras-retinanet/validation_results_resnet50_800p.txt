@@ -1,0 +1,141 @@
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.0000
+mAP using the weighted average of precisions among classes: 0.0000
+mAP: 0.0000
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.0845
+mAP using the weighted average of precisions among classes: 0.0845
+mAP: 0.0845
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.1427
+mAP using the weighted average of precisions among classes: 0.1427
+mAP: 0.1427
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.2786
+mAP using the weighted average of precisions among classes: 0.2786
+mAP: 0.2786
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.4842
+mAP using the weighted average of precisions among classes: 0.4842
+mAP: 0.4842
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.2907
+mAP using the weighted average of precisions among classes: 0.2907
+mAP: 0.2907
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.5063
+mAP using the weighted average of precisions among classes: 0.5063
+mAP: 0.5063
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.5356
+mAP using the weighted average of precisions among classes: 0.5356
+mAP: 0.5356
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.6390
+mAP using the weighted average of precisions among classes: 0.6390
+mAP: 0.6390
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.5884
+mAP using the weighted average of precisions among classes: 0.5884
+mAP: 0.5884
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.6315
+mAP using the weighted average of precisions among classes: 0.6315
+mAP: 0.6315
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.6235
+mAP using the weighted average of precisions among classes: 0.6235
+mAP: 0.6235
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.6811
+mAP using the weighted average of precisions among classes: 0.6811
+mAP: 0.6811
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.6628
+mAP using the weighted average of precisions among classes: 0.6628
+mAP: 0.6628
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.6790
+mAP using the weighted average of precisions among classes: 0.6790
+mAP: 0.6790
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.6860
+mAP using the weighted average of precisions among classes: 0.6860
+mAP: 0.6860
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.6880
+mAP using the weighted average of precisions among classes: 0.6880
+mAP: 0.6880
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.6932
+mAP using the weighted average of precisions among classes: 0.6932
+mAP: 0.6932
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7049
+mAP using the weighted average of precisions among classes: 0.7049
+mAP: 0.7049
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7100
+mAP using the weighted average of precisions among classes: 0.7100
+mAP: 0.7100
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7127
+mAP using the weighted average of precisions among classes: 0.7127
+mAP: 0.7127
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7281
+mAP using the weighted average of precisions among classes: 0.7281
+mAP: 0.7281
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7025
+mAP using the weighted average of precisions among classes: 0.7025
+mAP: 0.7025
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7210
+mAP using the weighted average of precisions among classes: 0.7210
+mAP: 0.7210
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7298
+mAP using the weighted average of precisions among classes: 0.7298
+mAP: 0.7298
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7229
+mAP using the weighted average of precisions among classes: 0.7229
+mAP: 0.7229
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7252
+mAP using the weighted average of precisions among classes: 0.7252
+mAP: 0.7252
+Loading model, this may take a second...
+1324 instances of class vehicle with average precision: 0.7245
+mAP using the weighted average of precisions among classes: 0.7245
+mAP: 0.7245
+resnet50_csv_01.h5
+resnet50_csv_02.h5
+resnet50_csv_03.h5
+resnet50_csv_04.h5
+resnet50_csv_05.h5
+resnet50_csv_06.h5
+resnet50_csv_07.h5
+resnet50_csv_08.h5
+resnet50_csv_09.h5
+resnet50_csv_10.h5
+resnet50_csv_11.h5
+resnet50_csv_12.h5
+resnet50_csv_13.h5
+resnet50_csv_14.h5
+resnet50_csv_15.h5
+resnet50_csv_16.h5
+resnet50_csv_17.h5
+resnet50_csv_18.h5
+resnet50_csv_19.h5
+resnet50_csv_20.h5
+resnet50_csv_21.h5
+resnet50_csv_22.h5
+resnet50_csv_23.h5
+resnet50_csv_24.h5
+resnet50_csv_25.h5
+resnet50_csv_26.h5
+resnet50_csv_27.h5
+resnet50_csv_28.h5
+Validations completed
