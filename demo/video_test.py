@@ -30,7 +30,7 @@ cv2.resizeWindow("Detection", 800, 800)
 
 ot = object_sorter()
 
-video = cv2.VideoCapture("../videos/beamng1.mp4")
+video = cv2.VideoCapture("../videos/singapore_traffic.mp4")
 #total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
 # Every 2 frames, I want to skip a frame.
 frame_skip_amt = 0 # This makes inferencing appear realtime
@@ -95,11 +95,11 @@ while True:
         #y2 = box[3]
 
         if (is_init_frame == True):
-            prev_frame_objects.append([(midpoint_x, midpoint_y), ot.get_init_index(), 0, deque(), -1])
+            prev_frame_objects.append([(midpoint_x, midpoint_y), ot.get_init_index(), 0, deque(), -1, 0])
         else:
             # All objects detected in current frame are initialised with index -1, after running through
             # the object sorter, objects are assigned appropriate indexes.
-            cur_frame_objects.append([(midpoint_x, midpoint_y), 0, 0, deque(), -1])
+            cur_frame_objects.append([(midpoint_x, midpoint_y), 0, 0, deque(), -1, 0])
 
         b = box.astype(int)
         draw_box(draw, b, color=(0, 255, 255))
@@ -120,9 +120,17 @@ while True:
         # Only drawing index for object that has been detected for 3 frames
         if (point[2] >= 5):            
             # Finding vector of car and converting to unit vector
-            vector = (point[3][-1][0] - point[3][0][0], point[3][-1][1] - point[3][0][1]) # (x, y)
-            #vector_mag = (vector[0]**2 + vector[1]**2)**(1/2)
+            vector = [point[3][-1][0] - point[3][0][0], point[3][-1][1] - point[3][0][1]] # [x, y]
+            vector_mag = (vector[0]**2 + vector[1]**2)**(1/2)
             
+            #dist = ((vector[0] - point[5][0])**2 + (vector[1] - point[5][1]))**(1/2)
+            dist = abs(vector_mag - point[5])
+
+            colour = (0, 255, 255)
+            if (dist >= 11) and point[5] != 0.0:
+                colour = (0, 0, 255)
+                print("CRASH: " + str(dist))
+
             #unit_vector = None
             #if (vector_mag == 0):
             #    unit_vector = (0, 0)
@@ -135,14 +143,16 @@ while True:
             #cv2.putText(draw, f"{int(vector_mag)}", point[0], font, 2, (0, 255, 255), 5, cv2.LINE_AA)
             
             # Showing both magnitude and direction of vector
-            end_point = (vector[0] + point[3][-1][0], vector[1] + point[3][-1][1]) # (x, y)
+            #end_point = [vector[0] + point[3][-1][0], vector[1] + point[3][-1][1]] # (x, y)
             # Showing index of object on object
-            cv2.putText(draw, f"{int(point[1])}", point[0], font, 1, (0, 255, 255), 2, cv2.LINE_AA)
+            #cv2.putText(draw, f"{int(point[1])}", point[0], font, 1, (0, 255, 255), 2, cv2.LINE_AA)
+            #cv2.putText(draw, f"{dist:.1f},{vector_mag:.1f},{point[5]:.1f}", point[0], font, 0.5, colour, 2, cv2.LINE_AA)
+            cv2.circle
 
-            cv2.line(draw, point[3][-1], end_point, (255, 255, 0), 2)
+            #cv2.line(draw, point[3][-1], end_point, (255, 255, 0), 2)
     
-    print(cur_frame_objects)
-    print("")
+    #print(cur_frame_objects)
+    #print("")
 
     if (is_init_frame == False):
         prev_frame_objects = cur_frame_objects.copy()
@@ -151,7 +161,7 @@ while True:
     cv2.imshow("Detection", draw)
 
     is_init_frame = False
-    if cv2.waitKey(1) == ord('q'):
+    if cv2.waitKey(0) == ord('q'):
         break
 
 print(total_framerate / total_frames)

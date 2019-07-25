@@ -86,10 +86,16 @@ class object_sorter:
                 if (prev_objects[corres_prev_obj][2] < 5):
                     cur_objects[i][3] = prev_objects[corres_prev_obj][3].copy()
                     cur_objects[i][3].append(cur_objects[i][0])
-                else:
+                else: # If object has been detected for at least 5 frames.
                     cur_objects[i][3] = prev_objects[corres_prev_obj][3].copy()
                     cur_objects[i][3].popleft()
                     cur_objects[i][3].append(cur_objects[i][0])
+
+                    # We make the current object store the previous objects vector
+                    vector = [prev_objects[corres_prev_obj][3][-1][0] - prev_objects[corres_prev_obj][3][0][0], \
+                        prev_objects[corres_prev_obj][3][-1][1] - prev_objects[corres_prev_obj][3][0][1]] # (x, y)
+                    vector_mag = (vector[0]**2 + vector[1]**2)**(1/2)
+                    cur_objects[i][5] = vector_mag
                 
                 cur_objects[i][2] = prev_objects[corres_prev_obj][2] + 1
 
@@ -105,125 +111,12 @@ class object_sorter:
         return cur_objects
         
 """
-        self.cur_indexes = set()
-        recognized_indexes = set()
-        
-        
-        i = 0
-        while (i < len(cur_objects) and len(prev_objects) != 0):
-            min_dist_so_far = 9999999#self.get_dist(prev_objects[0][0], cur_objects[i][0])
-            min_dist_index = None
+For the crash detection right, what I'm thinking of doing is storing the past 3 vectors for each object. When I'm about to pop an old vector (1st vector) and push a new vector (4th vector), I first check the euclidean distance between the old vectors and the new vector. This is where I'm thinking of a few different options:
+1. Find distance between 3rd vector and 4th vector 
+2. Find distance between mean vector of first 3 vectors and 4th vector
+3. Find distance between mean vector of first 3 vectors and mean vector of some combination of the 4 vectors.
 
-            j = 0
-
-            is_cur_object_recognized = False
-
-
-            while (j < len(prev_objects)):
-                # Getting distance between each pair of objects in the prev_frame_objects and cur_frame_objects
-                new_check_dist = self.get_dist(prev_objects[j][0], cur_objects[i][0])
-                print(new_check_dist, min_dist_so_far)
-                if new_check_dist <= min_dist_so_far:
-                    min_dist_so_far = new_check_dist
-                    min_dist_index = j
-
-                    print("new min: " + str(min_dist_so_far))
-            
-                j += 1
-
-            self.cur_indexes.add(prev_objects[min_dist_index][1])
-            cur_objects[i][1] = prev_objects[min_dist_index][1]
-            print(self.cur_indexes)
-
-            # Read description below to see what's going on here
-            if (prev_objects[min_dist_index][2] < 5): # change this to 3
-                cur_objects[i][3] = prev_objects[min_dist_index][3].copy()
-                cur_objects[i][3].append(cur_objects[i][0])
-            else:
-                cur_objects[i][3] = prev_objects[min_dist_index][3].copy()
-                cur_objects[i][3].popleft()
-                cur_objects[i][3].append(cur_objects[i][0])
-            
-            cur_objects[i][2] = prev_objects[min_dist_index][2] + 1
-                
-                # If this conditional is true, it means we've identified an object in cur_frame_objects
-                # as an old one in prev_frame_objects.
-                #if (temp_dist <= self.min_thresh_dist):
-                    # This triggers if two objects happen to be VERY close together and so the algo is
-                    # getting confused. This conditional ensures that the algo continues searching for
-                    # the appropriate old object by skipping the current one.
-                #    if (prev_objects[j][1] in self.cur_indexes) == True:
-                #        j += 1
-                #        print("close detection")
-                #        continue
-                    
-                    # Adding the index to our set of currently in-use indexes so we can assign
-                    # unused indexes to new items
-                    
-                    #self.cur_indexes.add(prev_objects[j][1])
-
-                    #cur_objects[i][1] = prev_objects[j][1]
-                    
-                    # Read description below to see what's going on here
-                    #if (prev_objects[j][2] < 5): # change this to 3
-                    #    cur_objects[i][3] = prev_objects[j][3].copy()
-                    #    cur_objects[i][3].append(cur_objects[i][0])
-                    #else:
-                    #    cur_objects[i][3] = prev_objects[j][3].copy()
-                    #    cur_objects[i][3].popleft()
-                    #    cur_objects[i][3].append(cur_objects[i][0])
-                    
-                    #    cur_objects[i][2] = prev_objects[j][2] + 1
-                    #elif (prev_objects[j][2] == 3):
-                    #    cur_objects[i][2] = 3
-                    
-                    # Incrementing the frame count of the object
-                    #cur_objects[i][2] = prev_objects[j][2] + 1
-
-                    #break
-                    # We can safely break because we assume that there is only one possible point that
-                    # in such close proximity to our current point to be indexed.
-                
-                #j += 1
-            i += 1
-        
-        # This iterates through the cur_frame_objects again and sees which ones have not 
-        # been assigned an index
-        for new_object in cur_objects:
-            if new_object[1] == -1:
-                new_object[1] = self.find_next_free_index()
-                self.cur_indexes.add(new_object[1])
-
-If an object is concurrently detected for 3 frames, we begin to draw its vector.
-
-Init frame is not considered the first frame, I suppose you could call it the zeroth frame... 
-
-For a particular object
-First frame:
-    - Increment frame counts from 0 to 1
-    - Add midpoint to deque via append()
-Second frame:
-    - Increment frame counts from 1 to 2
-    - Add midpoint to deque via append()
-Third frame:
-    - Increment frame counts from 2 to 3
-    - Add midpoint to deque via append()
-    - Get vector from 3rd frame midpoint and first frame midpoint
-
-Fourth frame:
-    - Keep frame count at 3
-    - Remove 1st frame midpoint using popleft()
-    - Add midpoint to deque via append()
-    - Get vector from 2nd frame midpoint and 4th frame midpoint
-Fifth frame:
-    - Keep frame count at 3
-    - Remove 2nd frame midpoint using popleft()
-    - Add midpoint to deque via append()
-    - Get vector from 3rd frame midpoint and 5th frame midpoint
-
-So this is what an object inside cur_frame_objects or prev_frame_objects will look like:
-    - Index 0: Tuple containing midpoint
-    - Index 1: Index of object used for object tracking
-    - Index 2: Number of frames detected for
-    - Index 3: Deque containing midpoints for past 3 frames. Length of this is the same as the value in Index 2
+After finding the distance, we can output a probability of crash based on the distance between the two vectors. In flask you could probably create a slider that sets the threshold for crash notification. For example, if the probability of crash is above 90%, only then the user is informed in the UI, otherwise the UI keeps a silent log of all potential crashes regardless of probability of crash
+I'm thinking 2nd option because averaging the vectors should help reduce random error, but not sure. Or I store 6 vectors and compare first 3 and next 3? This will further reduce errors I suppose
+I think the 6 vector option is not bad, what do you guys think
 """
