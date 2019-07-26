@@ -1,8 +1,67 @@
+"""
+OBJECT TRACKING IMPLEMENTATION
+
+It is extremely important to properly track objects across subsequent frames because by default, objects
+do not necessarily retain their original indexes across frames. I.E. It is entirely possible that an object
+with index 0 in the intitial frame is detected with index 1 in the next frame.
+
+Our solution to this is fairly simple, but is nonetheless effective. In essense the pseudo code looks something
+like this:
+
+1 For every new object detected in the current frame:
+    1.1 For every old object from the previous frame:
+        1.1.1 Find an old object such that the distance between this old object and new object is the least
+              among all combinations of old object and new object pairs.
+    1.2 The old object with the least distance to the new object is most certainly the same object. This 
+        is because an object can only move so far between subsequent frames so this distance will almost
+        always be smaller than the distance between 2 different objects.
+    1.3 Assign the new object the index of the corresponding old object.
+    1.4 Update new object's number of frames detected and vectors accordingly.
+
+However, the above algorithm only works if we assume that the number of objects across two frames will remain
+constant. As soon as objects start disappearing and appearing, this algorithm will break down as objects detected
+for the first time can be assigned the wrong index.
+
+To solve this, we check if an old object has already been assigned to a new object. If this is the case and there
+is a conflict between assigning two new objects to a single old object, we will compare the distances between
+the two pairs and decide which new object the old object actually corresponds to. The incorrect new object is 
+then marked as "not found" and will later be assigned a completely new index.
+
+To facilitate assigning of new indexes, we use a simple set to store the indexes currently in use. To find an unused
+index that is currently available, we simply start at index 0 and keep increasing the index until we find the
+smallest unused index. This is what the find_next_free_index() function does.
+
+Doing all of the above requires a myriad of information that is stored in prev_frame_objects and cur_frame_objects.
+The structure of these lists has been detailed below:
+
+prev_frame_objects structure:
+Index 0: Tuple for the midpoint of the object
+Index 1: Index of the object, used for unique indentification of objects
+Index 2: Number of frames object has been consecutively detected for
+Index 3: Deque to store midpoints of the object over the past 5 frames. Used for vector calculation
+Index 4: Points to the in-array index of the new object that this old object has been assigned to. This
+         is used to fix any conflicts between 2 or more new objects that have been assigned to the same
+         old object. 
+Index 5: Magnitude of object from previous frame
+
+Structure for cur_frame_objects is the same, except that Index 4 is instead used as a flag to determine
+whether the object has been assigned to a corresponding old object. This is useful for assigning completely
+newly detected objects with an unused index.
+
+OBJECT VECTOR CALCULATION
+
+Every object in 
+
+
+"""
+
+
 class object_tracker:
     def __init__(self):
-        self.cur_indexes = set()
-        self.init_index = -1
+        self.cur_indexes = set() # Keeping track of currently in-use object indexes.
+        self.init_index = -1 # Used when assigning indexes to objects in the very first frame
 
+    # 
     def get_init_index(self):
         self.init_index += 1
         return self.init_index
@@ -36,8 +95,6 @@ class object_tracker:
                 if (check_dist <= min_dist):
                     min_dist = check_dist
                     min_dist_index = j
-            # At the end of this loop we should be left with the index with the least distance
-            # Yup, we know that we are able to identify items with the least distance
 
             if (prev_objects[min_dist_index][4] != -1): # If the object had already been previously identified...
                 # Get distance of current used old object and new object which this old object points to
@@ -68,17 +125,6 @@ class object_tracker:
                 prev_objects[min_dist_index][4] = i # Old object has been identified as a new object
                 cur_objects[i][4] = min_dist_index
 
-            # Read description below to see what's going on here
-            #if (prev_objects[min_dist_index][2] < 5): # change this to 3
-            #    cur_objects[i][3] = prev_objects[min_dist_index][3].copy()
-            #    cur_objects[i][3].append(cur_objects[i][0])
-            #else:
-            #    cur_objects[i][3] = prev_objects[min_dist_index][3].copy()
-            #    cur_objects[i][3].popleft()
-            #    cur_objects[i][3].append(cur_objects[i][0])
-            
-            #cur_objects[i][2] = prev_objects[min_dist_index][2] + 1
-
         for i in range(0, len(cur_objects)):
             if (cur_objects[i][4] != -1):
                 corres_prev_obj = cur_objects[i][4]
@@ -108,14 +154,3 @@ class object_tracker:
                 new_object[4] = -1
         
         return cur_objects
-        
-"""
-For the crash detection right, what I'm thinking of doing is storing the past 3 vectors for each object. When I'm about to pop an old vector (1st vector) and push a new vector (4th vector), I first check the euclidean distance between the old vectors and the new vector. This is where I'm thinking of a few different options:
-1. Find distance between 3rd vector and 4th vector 
-2. Find distance between mean vector of first 3 vectors and 4th vector
-3. Find distance between mean vector of first 3 vectors and mean vector of some combination of the 4 vectors.
-
-After finding the distance, we can output a probability of crash based on the distance between the two vectors. In flask you could probably create a slider that sets the threshold for crash notification. For example, if the probability of crash is above 90%, only then the user is informed in the UI, otherwise the UI keeps a silent log of all potential crashes regardless of probability of crash
-I'm thinking 2nd option because averaging the vectors should help reduce random error, but not sure. Or I store 6 vectors and compare first 3 and next 3? This will further reduce errors I suppose
-I think the 6 vector option is not bad, what do you guys think
-"""
