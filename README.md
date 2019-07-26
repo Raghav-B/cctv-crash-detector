@@ -143,3 +143,13 @@ These files are too large to be uploaded to GitHub, so you'll have to download t
 
 * Naviate to `demo/`
 * `python cctv.py` to run.
+
+
+How does the backend work? 
+
+We used flask to get the backend to work. We have hosted the backend on Google cloud platform and is accessible by http://34.66.101.75:5002. 
+
+When you access the website, you will see tiles that represent the cctv's and when a crash is detected it turns red. When you click the 'camera' you can see the crash. 
+
+Our analysis system analyses the frame and sends a request to our backend that stores the camera number and the picture in bytes. This is stored in a python dictionary. THe website has a javascript script that polls the backend for any new crashes, which is returned in a list. It changes the color of the tile depending on the number it recieves. 
+
