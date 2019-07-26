@@ -1,0 +1,314 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<div class="container tile-table">
+  <div class="row">
+
+    <h2 class="dio-heading">CCTV Management</h2>
+    <a href="#">
+      <div class="tile" onclick="function1(1)" id = "1">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 1</div>
+        <div id = "inside_camera1"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="My Paystubs&#13;View my paystubs">
+      <div class="tile" onclick="function1(2)" id = "2">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 2</div>
+        <div id = "inside_camera2"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="My Benefits&#13;Display benefit plans&#13;1 Pending Plans">
+      <div class="tile" onclick="function1(3)" id = "3">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 3</div>
+        <div id = "inside_camera3"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="My Leave Requests&#13;Manage Leave Requests">
+      <div class="tile" onclick="function1(4)" id = "4">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 4</div>
+        <div id = "inside_camera4"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="Approve Leave Requests&#13;Approve/Reject Leaves&#13;2 Pending Requests">
+      <div class="tile" onclick="function1(5)" id = "5">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 5</div>
+        <div id = "inside_camera5"></div>
+
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="My Timesheet&#13;Manage working time&#13;24 Missing Days">
+      <div class="tile" onclick="function1(6)" id = "6">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 6</div>
+        <div id = "inside_camera6"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="Approve Timesheet&#13;Approve/Reject timesheets&#13;3 Pending Entries">
+      <div class="tile" onclick="function1(7)" id = "7">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 7</div>
+        <div id = "inside_camera7"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="Employee Lookup&#13;Search for employees">
+      <div class="tile" onclick="function1(8)" id = "8">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 8</div>
+        <div id = "inside_camera8"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+
+    <a href="#" title="My Tasks&#13;108 95 Overdue Tasks">
+      <div class="tile" onclick="function1(9)" id = "9">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 9</div>
+        <div id = "inside_camera9"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="My Appointments&#13;">
+      <div class="tile" onclick="function1(10)" id = "10">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 10</div>
+        <div id = "inside_camera10"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="My Contacts&#13;">
+      <div class="tile" onclick="function1(11)" id = "11">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 11</div>
+        <div id = "inside_camera11"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+    <a href="#" title="Simulate Sales Pipeline&#13;">
+      <div class="tile" onclick="function1(12)" id = "12">
+        <div class="fp-clearfix">&nbsp;</div>
+        <div class="fp-img"></div>
+        <div class="fp-title">Camera 12</div>
+        <div id = "inside_camera12"></div>
+        <div class="fp-baseNum"></div>
+        <div class="fp-baseInfo"></div>
+      </div>
+    </a>
+
+    <form action="/show" method="post" id = "form1">
+        <input type="hidden" name="num" id="camera_num"  >
+    </form>
+  </div>
+</div>
+</body>
+<script>
+  var form = document.getElementById("form1");
+  function function1(id){
+    document.getElementById("camera_num").value = id;
+    form.submit();
+  }
+  function httpGet(theUrl)
+  {
+  	var xmlHttp = new XMLHttpRequest();
+  	xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+  	xmlHttp.send( null );
+  	return xmlHttp.responseText;
+  }
+  function parser(){
+  	console.log("hello")
+  	var str = "This is a list of sodas * Dr. Pepper *LaCroix * 7up  *sprite * Fanta * Coke Zero *Pepsi";
+  	var obj = JSON.parse(httpGet("http://34.66.101.75:5002/check_for_crash"));
+  	console.log('je;', obj["customers"])
+    var arr = obj["customers"]
+    var arrayLength = arr.length;
+    for (var i = 1; i < 11; i++) {
+        console.log(arr[i]);
+        if(arr.includes(i)){
+          document.getElementById(i).className = 'tile1'
+          var temp1 = document.getElementById('inside_camera'+i.toString())
+          temp1.innerHTML = "CRASH";
+        }
+        else{
+          document.getElementById(i).className = 'tile';
+          var temp1 = document.getElementById('inside_camera'+i.toString())
+          temp1.innerHTML = "";
+        }
+    }
+
+  /*
+  	if(obj.data_show != "no"){
+  		obj1 = obj.data_show
+  		var arrayLength = obj1.length;
+  		var html = ``
+  		for (var i = 0; i < arrayLength; i++) {
+  			console.log(obj1[i]);
+  			html += `<li>${obj1[i]}</li>`;
+  				//Do something
+  		}
+  		//split string into an array using * as delimiter
+  		var items = str.split('*');
+  		//grab the first item since it's the title, not a soda
+  		var title = items.shift();
+
+  		//create an html string var
+
+  		//loop over remaining array elements and append to our html
+  		//items.forEach((el) => {
+
+  		//});
+  		//html += '</ul>';
+
+  		//display as HTML
+  		document.getElementById('notebook').innerHTML+= html;
+
+  	}
+    */
+  }
+  setInterval(function() {
+  	parser()
+  }, 2000);
+
+  </script>
+<style>
+  body {
+  margin-bottom: 200px;
+  min-height: 100vh;
+  min-width: 400px;
+  background: #237996 fixed;
+  background: -webkit-linear-gradient(#2da9b1, #1a4c7d) fixed; /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#2da9b1, #1a4c7d) fixed; /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#2da9b1, #1a4c7d) fixed; /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#2da9b1, #1a4c7d) fixed; /* Standard syntax */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+}
+h2.dio-heading {
+  display: block;
+  font-size: 20px;
+  font: Arial, Helvetica, sans-serif;
+  color: #FFF;
+}
+.tile-table a {
+  color: unset;
+  text-decoration: unset;
+}
+.tile {
+  display: inline-table;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2px;
+  border-radius: 4px;
+  width: 170px;
+  height: 170px;
+  background-color:yellow;
+  padding: 6px;
+  /*background-color: #FFF;*/
+  color: black;
+  margin-top: 5%;
+margin-right: 4%;
+}
+.tile1 {
+  display: inline-table;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2px;
+  border-radius: 4px;
+  width: 170px;
+  height: 170px;
+  background-color:red;
+  padding: 6px;
+  /*background-color: #FFF;*/
+  color: white;
+  margin-top: 5%;
+margin-right: 4%;
+}
+
+.tile-wide {
+  width: 358px;
+}
+
+.tile .fp-clearfix {
+  line-height: 1px;
+}
+.tile .fp-img {
+  position: absolute;
+  overflow: hidden;
+  height: 156px;
+}
+.tile .fp-img img {
+  width: calc(100% - 6px);
+}
+.tile .fp-title {
+  font-size: 17px;
+  line-height: 17px;
+}
+.tile .fp-subtitle {
+  overflow: hidden;
+  width: inherit;
+  font-size: 14px;
+  color: #848f94;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tile i.fa {
+  position: absolute;
+  bottom: 24px;
+  font-size: 1.5em;
+  color: #007cc0;
+}
+.tile .fp-baseNum,
+.tile .fp-baseInfo {
+  position: absolute;
+  right: 5px;
+  bottom: 1.4rem;
+  font-size: 1.7em;
+  color: #848f94;
+}
+.tile .fp-baseInfo {
+  bottom: 5px;
+  font-size: 12px;
+}
+.tile .fp-baseNum small {
+  font-size: 15px;
+  font-weight: bold;
+}
+.text-danger {
+  color: #d14900;
+}
+.text-success {
+  color: #3c763d;
+}
+
+</style>
