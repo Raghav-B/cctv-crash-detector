@@ -32,7 +32,7 @@ The key features of our solution include an immediate notification system that c
 
 ## Technical Details
 
-Essentially, our system detects vehicles every frame by using a Convolutional Neural Network (RetinaNet with a Resnet50 backbone to be specific) trained on a custom dataset. [The dataset we used can be found here](). We then use a custom algorithm to perform object tracking across multiple frames and calculated each vehicle's velocity vector.
+Essentially, our system detects vehicles every frame by using a Convolutional Neural Network (RetinaNet with a Resnet50 backbone to be specific) trained on a custom dataset. [The dataset we used can be found here](https://mega.nz/#F!wtdFEK5I!i-DhrihW2Gprb07xWHhlhQ). We then use a custom algorithm to perform object tracking across multiple frames and calculated each vehicle's velocity vector.
 
 By comparing this velocity vector every frame, we are able to detect massive changes in velocity (high deceleration or acceleration) and can flag these as a suspected accident. The frame with the suspected accident is then stored on the server for SCDF or SPF staff to review, and a notification about the accident is sent via the Cloud to the mobile devices of any rescue personnel in the vicinity of the accident.
 
@@ -136,8 +136,8 @@ Now restart your PC
 ### Getting Infernece Graph and Video Files
 
 These files are too large to be uploaded to GitHub, so you'll have to download them yourself and place them inside the cloned repository.
-* [Inference Graph]() - Place `.h5` file under `keras-retinanet/inference_graphs/`
-* [Test Video Files]() - Place `.mp4` files under `videos/`
+* [Inference Graph](https://mega.nz/#!lkFDUaJQ!IpJ00KTEB1LG01XEYfApor9HNvADY391g9lE0baP6ns) - Place `.h5` file under `keras-retinanet/inference_graphs/`
+* [Test Video Files](https://mega.nz/#F!11FBGQ7L!inYkskrFUJf-lP4AKVD0Iw) - Place `.mp4` files under `videos/`
 
 ### Running the Server
 
