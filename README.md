@@ -6,7 +6,7 @@ Submitted in the Splash Awards 2019, hosted by the Singapore Computer Society.
 Team members: Raghav Bhardwaj, Rishi Mahadevan, Rishab Patwari
 
 <p align = "center">
-    <img src="readme_src/crash_detection1.jpg" alt="Example of detected crash in a Physics simulator">
+    <img src="readme_src/crash_detection1.jpg" alt="Example of detected crash in a Physics simulator" height="=400" width="400">
 </p>
 
 ## Introduction
@@ -43,12 +43,14 @@ For our purpose we required a dataset in which we would view cars from an overhe
 One thing we were unsure of initially was whether using video-game footage would affect our model's accuracy. However this was not the case as the video-game we used, BeamNG had a very accurate physics engine that mirrored the real world, and our model was able to generalize well with real-world footage:
 
 <p align = "center">
-    <img src="readme_src/realworld_generalization.png" alt="Serverside UI showing detection of vehicles from real-world CCTV footage.">
+    <img src="readme_src/realworld_generalization.png" alt="Serverside UI showing detection of vehicles from real-world CCTV footage." height="=500" width="500">
 </p>
 
 The next issue we faced was a lack of high quality accident footage, as most of the crash compilations we found online had very low resolutions. This is where we decided to rely on BeamNG again, as [we found a channel that simulated realistic accidents in-game](https://www.youtube.com/channel/UCWjlKMwc6zf_0UuHJWUhWOA). 
 
-Due to its accurate simulation of real-world physics, we decided to use these videos to test our accident detection, to very promising results! [The following video shows the system in action]().
+Due to its accurate simulation of real-world physics, we decided to use these videos to test our accident detection, to very promising results! The following video shows the system in action:
+
+[![The following video shows the system in action](https://img.youtube.com/vi/KdOOQ64xT10/0.jpg)](https://www.youtube.com/watch?v=KdOOQ64xT10&feature=youtu.be)
 
 ## Installation and Setup Guide
 
@@ -141,5 +143,3 @@ These files are too large to be uploaded to GitHub, so you'll have to download t
 
 * Naviate to `demo/`
 * `python cctv.py` to run.
-
-
