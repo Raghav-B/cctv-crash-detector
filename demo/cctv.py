@@ -7,6 +7,10 @@ from detection_model import detection_model
 import datetime
 import glob
 import os
+import threading
+
+import requests
+import base64
 
 class cctv:
     # Setting up window elements
@@ -14,12 +18,14 @@ class cctv:
         self.window = window
         self.window.title(window_title)
 
+        self.URL = "http://34.66.101.75:5002/add_face"
+
         # Getting list of .mp4 files (CCTV footage)
         self.cctv_list = glob.glob("../videos/*.mp4") # 10 different videos
-        self.cur_cctv_index = 0
+        self.cur_cctv_index = 5
 
         # Setting up our model for detection
-        self.dm = detection_model("../keras-retinanet/inference_graphs/resnet50_600p_51+/resnet50_csv_36.h5", \
+        self.dm = detection_model("../keras-retinanet/inference_graphs/vehicle_detection_model.h5", \
             src_video = self.cctv_list[self.cur_cctv_index])
 
         # Frame to show our frame outputs from the detection model
@@ -82,6 +88,12 @@ class cctv:
             if not (crash_name in self.crash_dupl_checklist):
                 self.crash_dupl_checklist.add(crash_name)
                 self.crash_images.insert("", 0, text=crash_name)
+            
+            # Post online
+            post_thread = threading.Thread(target=self.poster, args=(cv_image, self.cur_cctv_index,))
+            post_thread.start()
+            #self.poster(cv_image, self.cur_cctv_index)
+            
             cv2.imwrite("crashes/" + crash_name + ".jpg", cv_image)
 
         self.lmain.after(1, self.update)
@@ -119,6 +131,12 @@ class cctv:
         self.crash_dupl_checklist = set()
         for row in self.crash_images.get_children():
             self.crash_images.delete(row)
+
+    def poster(self, frame, cctv_id):
+        ret, buffer = cv2.imencode(".jpg", frame)
+        jpg_as_text = base64.b64encode(buffer)
+        response = requests.post(self.URL, data={"num":cctv_id + 1, "img":jpg_as_text})
+        #print(response.content)
 
 # Start the UI
 if __name__ == "__main__":
