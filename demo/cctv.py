@@ -6,18 +6,27 @@ from PIL import Image, ImageTk
 from detection_model import detection_model
 import datetime
 import glob
+import os
 
 class cctv:
+    # Setting up window elements
     def __init__(self, window, window_title):
         self.window = window
         self.window.title(window_title)
 
-        self.dm = detection_model("../keras-retinanet/inference_graphs/resnet50_600p_51+/resnet50_csv_36.h5", \
-            src_video = "../videos/crash_all.mp4")
+        # Getting list of .mp4 files (CCTV footage)
+        self.cctv_list = glob.glob("../videos/*.mp4") # 10 different videos
+        self.cur_cctv_index = 0
 
+        # Setting up our model for detection
+        self.dm = detection_model("../keras-retinanet/inference_graphs/resnet50_600p_51+/resnet50_csv_36.h5", \
+            src_video = self.cctv_list[self.cur_cctv_index])
+
+        # Frame to show our frame outputs from the detection model
         self.imageFrame = tk.Frame(self.window, width=600, height=600)
         self.imageFrame.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
 
+        # Listbox that will contain all the information on detected crashes
         self.crash_images = ttk.Treeview(self.window, height=29)
         self.crash_images.heading("#0", text="Detected Crashes")
         self.crash_images.grid(row=0, column=2, padx=5, pady=5)
@@ -27,15 +36,14 @@ class cctv:
         self.crash_images.bind("<Double-1>", self.open_crash_image)
         self.crash_dupl_checklist = set()
 
-        self.cctv_list = glob.glob("../videos/*.mp4") # 10 different videos
-        self.cur_cctv_index = 0
-
+        # Label that shows current CCTV (.mp4) being viewed
         self.cctv_label_text = tk.StringVar()
-        self.cctv_label_text.set(f"CCTV ID: {self.cur_cctv_index} / {len(self.cctv_list) - 1}")
+        self.cctv_label_text.set(f"CCTV ID: {self.cur_cctv_index + 1} / {len(self.cctv_list)} - {os.path.basename(self.cctv_list[self.cur_cctv_index])[:-4]}")
         self.cctv_label = tk.Label(self.window, textvariable=self.cctv_label_text, \
             font=("Helvetica", 15))
         self.cctv_label.grid(row=1, column=0, columnspan=2, pady=5)
 
+        # Buttons to switch back and forth between different CCTVs
         self.prev_cctv = tk.Button(self.window, text="Prev CCTV", command=self.load_prev_cctv, \
             height=1, width=26, font=("Helvetica", 15))
         self.prev_cctv.grid(row=2, column=0, pady=5, padx=5)
@@ -43,21 +51,25 @@ class cctv:
             height=1, width=26, font=("Helvetica", 15))
         self.next_cctv.grid(row=2, column=1, pady=5, padx=5)
 
-        self.developer = tk.Label(self.window, text="Developed by Rcube", width=22, height=4, \
-            font=("Helvetica", 12), borderwidth=2, relief="groove")
-        self.developer.grid(row=1, column=2, rowspan=2, pady=5, padx=5)
+        # Reset history of suspected crash detections and delete saved crash images
+        self.reset_history()
+        self.reset = tk.Button(self.window, text="Reset History", font=("Helvetica", 11), \
+            command=self.reset_history, width=21, height=4)
+        self.reset.grid(row=1, column=2, rowspan=2)
 
-        #Capture video frames
+        # Required to show frame output from detection model
         self.lmain = tk.Label(self.imageFrame)
         self.lmain.grid(row=0, column=0)
 
+        # Callback function to get new frames from detection model
         self.update()
         self.window.mainloop()
 
+    # Callback function that gets a frame from the detection model. Based on whether a crash has been 
+    # detected, it also saves the image of the crash and updates the crash listbox.
     def update(self):
         ret, cv_image, frame_time, is_crash_detected = self.dm.get_frame()
 
-        #if (ret == True):
         frame = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGBA)
         frame = Image.fromarray(frame)
         frame = ImageTk.PhotoImage(image=frame)
@@ -74,26 +86,40 @@ class cctv:
 
         self.lmain.after(1, self.update)
     
+    # Double-click any of the items in the listbox to view the image of the crash
     def open_crash_image(self, event):
         query_image = self.crash_images.selection()[0]
         open_image = cv2.imread("crashes/" + self.crash_images.item(query_image, "text") + \
             ".jpg")
         cv2.imshow("Detected Crash", open_image)
 
+    # Loads previous CCTV, emulates circular array
     def load_prev_cctv(self):
         self.cur_cctv_index -= 1
         if (self.cur_cctv_index < 0):
             self.cur_cctv_index = len(self.cctv_list) - 1
         self.dm.src_video = self.cctv_list[self.cur_cctv_index]
         self.dm.video = cv2.VideoCapture(self.dm.src_video)
-        self.cctv_label_text.set(f"CCTV ID: {self.cur_cctv_index} / {len(self.cctv_list) - 1}")
+        self.cctv_label_text.set(f"CCTV ID: {self.cur_cctv_index + 1} / {len(self.cctv_list)} - {os.path.basename(self.cctv_list[self.cur_cctv_index])[:-4]}")
     
+    # Loads next CCTV, emulates circular array
     def load_next_cctv(self):
         self.cur_cctv_index += 1
         if (self.cur_cctv_index >= len(self.cctv_list)):
             self.cur_cctv_index = 0
         self.dm.src_video = self.cctv_list[self.cur_cctv_index]
         self.dm.video = cv2.VideoCapture(self.dm.src_video)
-        self.cctv_label_text.set(f"CCTV ID: {self.cur_cctv_index} / {len(self.cctv_list) - 1}")
+        self.cctv_label_text.set(f"CCTV ID: {self.cur_cctv_index + 1} / {len(self.cctv_list)} - {os.path.basename(self.cctv_list[self.cur_cctv_index])[:-4]}")
 
-cctv(tk.Tk(), "CCTV Crash Detector")
+    # Deletes all saved crash images and empties crash listbox
+    def reset_history(self):
+        files_to_delete = glob.glob("crashes/*")
+        for i in files_to_delete:
+            os.remove(i)
+        self.crash_dupl_checklist = set()
+        for row in self.crash_images.get_children():
+            self.crash_images.delete(row)
+
+# Start the UI
+if __name__ == "__main__":
+    cctv(tk.Tk(), "CCTV Crash Detector")

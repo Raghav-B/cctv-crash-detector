@@ -129,7 +129,7 @@ class detection_model:
                 # Finding vector of object across 5 frames
                 vector = [point[3][-1][0] - point[3][0][0], point[3][-1][1] - point[3][0][1]]
                 # Getting a simple estimate coordinate of where we expect our object to end up
-                # with its current vector
+                # with its current vector. This is used to draw the predicted vector for each object.
                 end_point = (2 * vector[0] + point[3][-1][0], 2 * vector[1] + point[3][-1][1])
                 
                 # Getting magnitude of vector for crash detection. We could use the direction in this detection
