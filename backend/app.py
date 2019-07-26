@@ -43,13 +43,14 @@ def add_face():
         #cv2.waitKey(0)
         #print(image)
     return "list of names & faces"
-
+#this is responsible with showing the photo sent by the analysis systemm
 @app.route("/show", methods=['GET', 'POST'])
 def show():
     if request.method == 'POST':
         camera_num = request.form['num']
-        image1 = b64encode(imageString).decode("utf-8")
-        global dict_cctv
+        global dict_cctv 
+        if(camera_num in dict_cctv and dict_cctv[camera_num] != ''): 
+             image1 = b64encode(dict_cctv[num]).decode("utf-8")
         dict_cctv[camera_num] = ''
         return render_template("photo_display.html", image=image1)
 @app.route('/send')

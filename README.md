@@ -29,7 +29,7 @@ The key features of our solution include an immediate notification system that c
 * [LabelImg](https://github.com/tzutalin/labelImg) - Used to label our custom dataset
 * [OpenCV](https://opencv.org/) - Used for its various image annotation/drawing functions
 * [Tkinter](https://tkdocs.com/) - Used to make serverside GUI
-
+* [Flask](https://palletsprojects.com/p/flask/) - Used to make the backend run and the api gateway
 ## Technical Details
 
 Essentially, our system detects vehicles every frame by using a Convolutional Neural Network (RetinaNet with a Resnet50 backbone to be specific) trained on a custom dataset. [The dataset we used can be found here](https://mega.nz/#F!wtdFEK5I!i-DhrihW2Gprb07xWHhlhQ). We then use a custom algorithm to perform object tracking across multiple frames and calculated each vehicle's velocity vector.
