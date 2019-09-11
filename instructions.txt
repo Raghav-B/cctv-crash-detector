@@ -1,5 +1,5 @@
 # Starting training
-python keras_retinanet/bin/train.py --backbone=resnet101 --batch-size=2 --epochs=100 --steps=1000 --imagenet-weights --image-min-side=400 --compute-val-loss --weighted-average csv ../data_processing/csvs/keras_train.csv ../data_processing/csvs/labels.csv --val-annotations=../data_processing/csvs/keras_validation.csv
+python keras_retinanet/bin/train.py --backbone=resnet50 --batch-size=2 --epochs=100 --steps=1000 --imagenet-weights --image-min-side=600 --compute-val-loss --weighted-average csv ../data_processing/csvs/keras_train.csv ../data_processing/csvs/labels.csv --val-annotations=../data_processing/csvs/keras_validation.csv
 
 # Resuming training from a previous snapshot
 python keras_retinanet/bin/train.py --weights=inference_graphs/resnet50_800p/resnet50_csv_28.h5 --backbone=resnet50 --batch-size=2 --epochs=50 --steps=1000 --compute-val-loss --weighted-average csv ../data_processing/csvs/keras_train.csv ../data_processing/csvs/labels.csv --val-annotations=../data_processing/csvs/keras_validation.csv

@@ -4,7 +4,7 @@ import glob
 import os
 import random
 
-vid_col = glob.glob("videos/*.mp4")
+vid_col = glob.glob("../videos/temp/*.mp4")
 
 print(vid_col)
 
@@ -15,8 +15,10 @@ for x in vid_col:
     input_vid = cv2.VideoCapture(x)
     ret, frame = input_vid.read()
     while (ret):
-        #frames_to_skip = random.randint(50, 250)
-        frames_to_skip = random.randint(250, 1000)
+        #frames_to_skip = 50
+        #frames_to_skip = random.randint(10, 50)
+        frames_to_skip = random.randint(50, 250)
+        #frames_to_skip = random.randint(250, 1000)
         ret = None
 
         for i in range(0, frames_to_skip):
@@ -27,7 +29,7 @@ for x in vid_col:
         if (ret == False):
             break
 
-        output_path = "validation_extracted_frames/" + str(frame_index) + ".jpg"
+        output_path = "../utown_data/" + str(frame_index) + ".jpg"
         frame_index += 1
 
         cv2.imwrite(output_path, frame)

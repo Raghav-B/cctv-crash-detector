@@ -1,0 +1,241 @@
+01
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.0000
+mAP using the weighted average of precisions among classes: 0.0000
+mAP: 0.0000
+
+02
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.0008
+mAP using the weighted average of precisions among classes: 0.0008
+mAP: 0.0008
+
+03
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.0311
+mAP using the weighted average of precisions among classes: 0.0311
+mAP: 0.0311
+
+04
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.2436
+mAP using the weighted average of precisions among classes: 0.2436
+mAP: 0.2436
+
+05
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.2819
+mAP using the weighted average of precisions among classes: 0.2819
+mAP: 0.2819
+
+06
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.2828
+mAP using the weighted average of precisions among classes: 0.2828
+mAP: 0.2828
+
+07
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.4619
+mAP using the weighted average of precisions among classes: 0.4619
+mAP: 0.4619
+
+08
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.5517
+mAP using the weighted average of precisions among classes: 0.5517
+mAP: 0.5517
+
+09
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.5276
+mAP using the weighted average of precisions among classes: 0.5276
+mAP: 0.5276
+
+10
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.5582
+mAP using the weighted average of precisions among classes: 0.5582
+mAP: 0.5582
+
+11
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.6168
+mAP using the weighted average of precisions among classes: 0.6168
+mAP: 0.6168
+
+12
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.6136
+mAP using the weighted average of precisions among classes: 0.6136
+mAP: 0.6136
+
+13
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.6656
+mAP using the weighted average of precisions among classes: 0.6656
+mAP: 0.6656
+
+14
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.6745
+mAP using the weighted average of precisions among classes: 0.6745
+mAP: 0.6745
+
+15
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.6821
+mAP using the weighted average of precisions among classes: 0.6821
+mAP: 0.6821
+
+16
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.6858
+mAP using the weighted average of precisions among classes: 0.6858
+mAP: 0.6858
+
+17
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.6774
+mAP using the weighted average of precisions among classes: 0.6774
+mAP: 0.6774
+
+18
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7052
+mAP using the weighted average of precisions among classes: 0.7052
+mAP: 0.7052
+
+19
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7023
+mAP using the weighted average of precisions among classes: 0.7023
+mAP: 0.7023
+
+20
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.6900
+mAP using the weighted average of precisions among classes: 0.6900
+mAP: 0.6900
+
+21
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7184
+mAP using the weighted average of precisions among classes: 0.7184
+mAP: 0.7184
+
+22
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7092
+mAP using the weighted average of precisions among classes: 0.7092
+mAP: 0.7092
+
+23
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7017
+mAP using the weighted average of precisions among classes: 0.7017
+mAP: 0.7017
+
+24
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7128
+mAP using the weighted average of precisions among classes: 0.7128
+mAP: 0.7128
+
+25
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7265
+mAP using the weighted average of precisions among classes: 0.7265
+mAP: 0.7265
+
+26
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7224
+mAP using the weighted average of precisions among classes: 0.7224
+mAP: 0.7224
+
+27
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7287
+mAP using the weighted average of precisions among classes: 0.7287
+mAP: 0.7287
+
+28
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7241
+mAP using the weighted average of precisions among classes: 0.7241
+mAP: 0.7241
+
+29
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7030
+mAP using the weighted average of precisions among classes: 0.7030
+mAP: 0.7030
+
+30
+Loading model, this may take a second...
+0 instances of class bike with average precision: 0.0000
+1324 instances of class non-bike with average precision: 0.7355
+mAP using the weighted average of precisions among classes: 0.7355
+mAP: 0.7355
+
+resnet50_csv_01.h5
+resnet50_csv_02.h5
+resnet50_csv_03.h5
+resnet50_csv_04.h5
+resnet50_csv_05.h5
+resnet50_csv_06.h5
+resnet50_csv_07.h5
+resnet50_csv_08.h5
+resnet50_csv_09.h5
+resnet50_csv_10.h5
+resnet50_csv_11.h5
+resnet50_csv_12.h5
+resnet50_csv_13.h5
+resnet50_csv_14.h5
+resnet50_csv_15.h5
+resnet50_csv_16.h5
+resnet50_csv_17.h5
+resnet50_csv_18.h5
+resnet50_csv_19.h5
+resnet50_csv_20.h5
+resnet50_csv_21.h5
+resnet50_csv_22.h5
+resnet50_csv_23.h5
+resnet50_csv_24.h5
+resnet50_csv_25.h5
+resnet50_csv_26.h5
+resnet50_csv_27.h5
+resnet50_csv_28.h5
+resnet50_csv_29.h5
+resnet50_csv_30.h5
+Validations completed

@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import os
 
-csv_file = pd.read_csv("csvs/train.csv")
-src_path = "../training_data/"
+csv_file = pd.read_csv("csvs/validation.csv")
+src_path = "../validation_data/"
 
 new_paths = csv_file["filename"]
 new_paths = new_paths.copy()
@@ -24,4 +24,4 @@ print(new_paths)
 new_dataframe = pd.concat([new_paths, csv_file["xmin"], csv_file["ymin"], csv_file["xmax"],\
 csv_file["ymax"], csv_file["class"]], axis = 1)
 
-new_dataframe.to_csv("csvs/keras_train.csv", index = False)
+new_dataframe.to_csv("csvs/keras_validation.csv", index = False)

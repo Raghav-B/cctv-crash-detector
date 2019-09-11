@@ -121,6 +121,8 @@ class detection_model:
         self.total_framerate += (1/frame_time)
         self.total_frames += 1
 
+        #cv2.imwrite(str(self.total_frames) + ".png", draw_frame)
+
         is_crash_detected = False # Has a crash been detected anywhere in our current frame?
         for point in self.cur_frame_objects: # Iterating through all our objects in the current frame.
             # Only objects that have been present for 5 consecutive frames are considered. This is done to
@@ -153,6 +155,7 @@ class detection_model:
                 # Drawing predicted future vector of each object. (Blue line)
                 cv2.line(draw_frame, point[3][-1], end_point, (255, 255, 0), 2)
 
+        #cv2.imwrite(str(self.total_frames) + "_detect.png", draw_frame)
         # If crash has occured in current frame, add text that notifies that a crash has occurred.
         if (is_crash_detected == True):
             cv2.putText(draw_frame, f"CRASH DETECTED", (10, 30), self.font, 1, (0, 0, 255), 2, cv2.LINE_AA)

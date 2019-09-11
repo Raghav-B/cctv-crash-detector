@@ -4,3 +4,4 @@
 **/inference_graphs
 **/snapshots
 **/__pycache__
+**/semi_labelled_data

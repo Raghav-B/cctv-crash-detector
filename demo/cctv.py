@@ -101,6 +101,7 @@ class cctv:
     # Double-click any of the items in the listbox to view the image of the crash
     def open_crash_image(self, event):
         query_image = self.crash_images.selection()[0]
+        print(self.crash_images.index(query_image))
         open_image = cv2.imread("crashes/" + self.crash_images.item(query_image, "text") + \
             ".jpg")
         cv2.imshow("Detected Crash", open_image)
@@ -110,7 +111,7 @@ class cctv:
         self.cur_cctv_index -= 1
         if (self.cur_cctv_index < 0):
             self.cur_cctv_index = len(self.cctv_list) - 1
-        self.dm.src_video = self.cctv_list[self.cur_cctv_index]
+        #self.dm.src_video = self.cctv_list[self.cur_cctv_index]
         self.dm.video = cv2.VideoCapture(self.dm.src_video)
         self.cctv_label_text.set(f"CCTV ID: {self.cur_cctv_index + 1} / {len(self.cctv_list)} - {os.path.basename(self.cctv_list[self.cur_cctv_index])[:-4]}")
     
