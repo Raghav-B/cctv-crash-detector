@@ -3,7 +3,7 @@ import glob
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-image_path = 'validation/'
+image_path = "../validation_data/"
 
 def xml_to_csv(path):
     xml_list = []
@@ -11,7 +11,7 @@ def xml_to_csv(path):
         tree = ET.parse(xml_file)
         root = tree.getroot()
         for member in root.findall('object'):
-            value = (root.find('filename').text,
+            value = (os.path.basename(xml_file)[:-4] + ".jpg",
                     int(root.find('size')[0].text),
                     int(root.find('size')[1].text),
                     member[0].text,
@@ -27,7 +27,7 @@ def xml_to_csv(path):
 
 def main():
     xml_df = xml_to_csv(image_path)
-    xml_df.to_csv('validation.csv', index=None)
+    xml_df.to_csv('csvs/validation.csv', index=None)
     print('Successfully converted xml to csv.')
 
 main()
