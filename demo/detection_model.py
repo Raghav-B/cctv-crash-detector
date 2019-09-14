@@ -29,7 +29,7 @@ class detection_model:
         # Loading pretrained model with resnet50 backbone
         self.model = models.load_model(model_path, backbone_name='resnet50')
         # Unused in our case, but is basically the class our model was trained to detect
-        self.label_names = {0: "vehicle"}
+        self.label_names = {0: "bike", 1: "non-bike"}
         
         # Initialising input video source
         self.src_video = src_video
@@ -58,6 +58,8 @@ class detection_model:
     # draw_frame: Frame post-inferencing with detections and other information drawn on
     # frame_time: Time taken for inferencing of frame
     # is_crash_detected: Flag for whether frame contains a suspected crash 
+    total_frames = 0
+    crash_frames = 0
     def get_frame(self):
         # Used for framerate calculation
         start_time = time.time()
@@ -70,6 +72,7 @@ class detection_model:
         if (ret == False):
             self.video = cv2.VideoCapture(self.src_video)
             ret, frame = self.video.read()
+            print("end\n\n\n\n\n\n\n\n\n")
 
         # Making input image square by padding it. This is because our model was trained on square
         # images. Changing the aspect ratio of input images would greatly reduce accuracy.
@@ -166,6 +169,10 @@ class detection_model:
             self.cur_frame_objects = []
         self.is_init_frame = False
 
+        self.total_frames += 1
+        if is_crash_detected:
+            self.crash_frames += 1
+        print((self.crash_frames / self.total_frames) * 100)
         return ret, draw_frame, frame_time, is_crash_detected
         
     # Cleaning up

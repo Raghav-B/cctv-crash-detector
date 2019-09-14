@@ -5,7 +5,7 @@ python keras_retinanet/bin/train.py --backbone=resnet50 --batch-size=2 --epochs=
 python keras_retinanet/bin/train.py --weights=inference_graphs/resnet50_800p/resnet50_csv_28.h5 --backbone=resnet50 --batch-size=2 --epochs=50 --steps=1000 --compute-val-loss --weighted-average csv ../data_processing/csvs/keras_train.csv ../data_processing/csvs/labels.csv --val-annotations=../data_processing/csvs/keras_validation.csv
 
 # Run validation on inference model
-python keras_retinanet/bin/evaluate.py --backbone=resnet101 --score-threshold=0.7 --image-min-side=896 csv model_training/keras_validation.csv model_training/keras_labels.csv inference_graphs/resnet101_csv_12_inference.h5
+python keras_retinanet/bin/evaluate.py --backbone=resnet50 --score-threshold=0.95 --image-min-side=600 csv ../data_processing/csvs/keras_validation.csv ../data_processing/csvs/labels.csv inference_graphs/temp/vehicle_detection_model.h5
 
 # Debugging annotations/labels
 python keras_retinanet/bin/debug.py --anchors --annotations csv model_training/keras_train.csv model_training/keras_labels.csv

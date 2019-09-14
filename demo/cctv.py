@@ -21,11 +21,12 @@ class cctv:
         self.URL = "http://34.66.101.75:5002/add_face"
 
         # Getting list of .mp4 files (CCTV footage)
-        self.cctv_list = glob.glob("../videos/*.mp4") # 10 different videos
-        self.cur_cctv_index = 5
+        self.cctv_list = glob.glob("../videos/final/*.mp4")
+        self.cur_cctv_index = 0
 
         # Setting up our model for detection
-        self.dm = detection_model("../keras-retinanet/inference_graphs/vehicle_detection_model.h5", \
+        self.dm = detection_model("../keras-retinanet/inference_graphs/crash_detection_model.h5", \
+        #self.dm = detection_model("../keras-retinanet/inference_graphs/vehicle_tracking_model.h5", \
             src_video = self.cctv_list[self.cur_cctv_index])
 
         # Frame to show our frame outputs from the detection model
@@ -111,7 +112,7 @@ class cctv:
         self.cur_cctv_index -= 1
         if (self.cur_cctv_index < 0):
             self.cur_cctv_index = len(self.cctv_list) - 1
-        #self.dm.src_video = self.cctv_list[self.cur_cctv_index]
+        self.dm.src_video = self.cctv_list[self.cur_cctv_index]
         self.dm.video = cv2.VideoCapture(self.dm.src_video)
         self.cctv_label_text.set(f"CCTV ID: {self.cur_cctv_index + 1} / {len(self.cctv_list)} - {os.path.basename(self.cctv_list[self.cur_cctv_index])[:-4]}")
     
@@ -122,6 +123,8 @@ class cctv:
             self.cur_cctv_index = 0
         self.dm.src_video = self.cctv_list[self.cur_cctv_index]
         self.dm.video = cv2.VideoCapture(self.dm.src_video)
+        self.dm.total_frames = 0
+        self.dm.crash_frames = 0
         self.cctv_label_text.set(f"CCTV ID: {self.cur_cctv_index + 1} / {len(self.cctv_list)} - {os.path.basename(self.cctv_list[self.cur_cctv_index])[:-4]}")
 
     # Deletes all saved crash images and empties crash listbox
