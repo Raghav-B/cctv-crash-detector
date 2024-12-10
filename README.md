@@ -1,4 +1,4 @@
-# CCTV Traffic Accident Detection - Team R-Cube
+# Vision-Based Accident Detector for Traffic CCTVs
 **Finalist for Singapore Computer Society's Splash Awards 2019**
 
 This project uses Computer Vision, Deep Learning, and Artificial Intelligence to detect traffic accidents of high severity on a variety of roads and dynamic traffic conditions.
